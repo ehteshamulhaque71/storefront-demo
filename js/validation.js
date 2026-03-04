@@ -111,6 +111,23 @@ function savaFormDataToLocalStorage(formData) {
     
 }
 
+function displayUserCard(userData) {
+    const userCardContainer = document.getElementById('userCard');
+    console.log(userCardContainer)
+
+    let cardHtml = `
+        <div class="card">
+            <div>
+                <h5>${userData.firstName} ${userData.lastName}</h5>
+                <p class="card-text">Email: ${userData.email}</p>
+                <p class="card-text">Address: ${userData.address.street}, ${userData.address.city}, ${userData.address.state} ${userData.address.zip}</p>
+                <button class="btn btn-danger">Delete User</button>
+            </div>
+        </div>
+    `;
+
+    userCardContainer.innerHTML = cardHtml;
+}
 
 function handleSignupSubmit(event) {
     event.preventDefault();
@@ -130,6 +147,8 @@ function handleSignupSubmit(event) {
     else {
         window.alert('Sign up failed!!');
     }
+
+    displayUserCard(formData);
 }
 
 function initilizeApp() {
