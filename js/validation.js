@@ -1,3 +1,5 @@
+const STORAGE_KEY = 'storefront_user';
+
 function updateField(formField, errorElement, isValid, errorMessage) {
     if (isValid) {
         formField.classList.add('is-valid');
@@ -56,8 +58,8 @@ function validateField(formField) {
     return isValid;
 }
 
-function validateForm() {
-    const form = document.getElementById("signupForm");
+function validateForm(form) {
+    // const form = document.getElementById("signupForm");
     let isValid = true;
 
     const formInputs = form.querySelectorAll('input, select');
@@ -71,13 +73,62 @@ function validateForm() {
     return isValid;
 }
 
+function getFormData(form) {
+    const formData = new FormData(form);
+
+    const data = {};
+
+    for(let [key, value] of formData.entries()) {
+        data[key] = value;
+    }
+
+    return {
+        firstName: data.firstName,
+        lastName: data.lastName,
+        email: data.email,
+        phone: data.phone,
+        address: {
+            street: data.street,
+            city: data.city,
+            state: data.state,
+            zip: data.zip
+        },
+        creationDate: new Date().toISOString()
+    };
+}
+
+function savaFormDataToLocalStorage(formData) {
+    try {
+        const userJSON = JSON.stringify(formData);
+        localStorage.setItem(STORAGE_KEY, userJSON);
+        console.log('Saved successfully!');
+        return true;
+    }
+    catch (error) {
+        console.log('Error saving to local storage:', error);
+        return false;
+    }
+    
+}
+
 
 function handleSignupSubmit(event) {
     event.preventDefault();
 
-    if(!validateForm()) {
-        window.alert('Form is not valid');
+    const form = document.getElementById("signupForm");
+
+    if(!validateForm(form)) {
+        // window.alert('Form is not valid');
         return;
+    }
+
+    const formData = getFormData(form);
+
+    if(savaFormDataToLocalStorage(formData)) {
+        window.alert('You successfully signed up!');
+    }
+    else {
+        window.alert('Sign up failed!!');
     }
 }
 
