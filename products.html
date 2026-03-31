@@ -30,12 +30,15 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="products.html">Products</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="cart.html">Cart 🛒</a>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- Product Form -->
+    <!-- Product Form (Keep same as L07) -->
     <div class="container my-5">
         <div class="card p-4 mb-4">
             <h2 class="text-center mb-4">Add Product</h2>
@@ -84,7 +87,7 @@
             </form>
         </div>
 
-        <!-- jQuery Search Box -->
+        <!-- jQuery Search Box (Keep same as L07) -->
         <div class="card p-3 mb-4">
             <label for="searchBox" class="form-label"><strong>Search Products:</strong></label>
             <input type="text" class="form-control" id="searchBox" placeholder="Type to search by title or category...">
@@ -98,7 +101,7 @@
         </div>
     </div>
 
-    <!-- Update Modal -->
+    <!-- Update Modal (Keep same as L07) -->
     <div class="modal fade" id="updateModal" tabindex="-1">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -111,13 +114,13 @@
                         <input type="hidden" id="updateProductId">
                         
                         <div class="mb-3">
-                            <label for="updateProductTitle" class="form-label">Product Title <strong class="text-danger">*</strong></label>
+                            <label for="updateProductTitle" class="form-label">Product Title <span class="text-danger">*</span></label>
                             <input type="text" class="form-control" id="updateProductTitle" required>
                             <div class="text-danger" id="updateProductTitleError"></div>
                         </div>
 
                         <div class="mb-3">
-                            <label for="updateCategory" class="form-label">Category <strong class="text-danger">*</strong></label>
+                            <label for="updateCategory" class="form-label">Category <span class="text-danger">*</span></label>
                             <select class="form-select" id="updateCategory" required>
                                 <option value="">Choose...</option>
                                 <option value="Electronics">Electronics</option>
@@ -129,13 +132,13 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="updateUnitMeasure" class="form-label">Unit of Measure <strong class="text-danger">*</strong></label>
+                            <label for="updateUnitMeasure" class="form-label">Unit of Measure <span class="text-danger">*</span></label>
                             <input type="text" class="form-control" id="updateUnitMeasure" required>
                             <div class="text-danger" id="updateUnitMeasureError"></div>
                         </div>
 
                         <div class="mb-3">
-                            <label for="updatePrice" class="form-label">Price <strong class="text-danger">*</strong></label>
+                            <label for="updatePrice" class="form-label">Price <span class="text-danger">*</span></label>
                             <input type="number" class="form-control" id="updatePrice" step="0.01" min="0" required>
                             <div class="text-danger" id="updatePriceError"></div>
                         </div>
@@ -158,7 +161,7 @@
         <p>&copy; 2026 StoreFront | IST 256 Group Project Demo</p>
     </footer>
 
-    <!-- Bootstrap JS (needed for modal) -->
+    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

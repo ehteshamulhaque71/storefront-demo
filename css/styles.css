@@ -10,3 +10,14 @@ footer {
 body {
   padding-bottom: 60px; /* Must match the footer's height */
 }
+
+/* Remove number input spinner arrows */
+input[type="text"].quantity-input::-webkit-outer-spin-button,
+input[type="text"].quantity-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="text"].quantity-input {
+    -moz-appearance: textfield;
+}
